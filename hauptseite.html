@@ -9,23 +9,15 @@
 <body>
     <div class="container">
         <h1>Our Memories</h1>
-        <p id="memory" class="fade">Klick auf den Button, um eine Erinnerung anzuzeigen!</p>
-        <img id="memoryImage" src="" alt="Erinnerungsbild" class="fade" style="max-width:100%; border-radius: 10px; margin-top: 20px;">
-
-        <!-- Button zum Zufällige Erinnerung Anzeigen -->
-        <button id="randomButton" onclick="showRandomMemory()">Zufällige Erinnerung anzeigen</button>
-
-        <!-- Button zum Anzeigen aller Erinnerungen -->
-        <button id="allButton" onclick="showAllMemories()">Alle Erinnerungen anzeigen</button>
-
+        <p id="memory">Klick auf den Button, um eine Erinnerung anzuzeigen!</p>
+        <img id="memoryImage" src="" alt="Erinnerungsbild" class="fade">
+        
+        <!-- Buttons -->
+        <button id="randomButton" onclick="showNextMemory()">Nächste Erinnerung anzeigen</button>
+        <button id="allButton" onclick="toggleAllMemories()">Alle Erinnerungen anzeigen</button>
+        
         <!-- Bereich für alle Erinnerungen -->
         <div id="all-memories" class="fade"></div>
-
-        <!-- Liebesbrief am Ende -->
-        <div id="letter" class="fade">
-            <h2>Liebesbrief</h2>
-            <p>Hier noch Liebesbrief schreiben!</p>
-        </div>
     </div>
 
     <!-- Hintergrundmusik -->
@@ -33,4 +25,5 @@
     
     <script src="script.js"></script>
 </body>
+
 </html>

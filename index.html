@@ -3,66 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passwortgeschützte Seite</title>
+    <title>Unsere Erinnerungen</title> <!-- Updated title -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        .eye-icon {
-            cursor: pointer;
-            margin-left: -30px; /* Positioniere das Icon passend */
-            margin-top: 5px; /* Vertikales Centering */
-            position: relative;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hellolo!</h1>
-        <p>Gib unser besonderes Datum ein, um fortzufahren:</p>
-        
-        <!-- Passwort-Eingabefeld -->
-        <div style="position: relative;">
-            <input type="password" id="password" placeholder="TT.MM.JJJJ">
-            <span class="eye-icon" id="togglePassword" onclick="togglePassword()">👁️</span>
-        </div>
-        <button onclick="checkPassword()">Eingeben</button>
-        <button onclick="playMusic()">Musik abspielen</button>
-        
-        <p id="message"></p>
+        <h1>Unsere schönsten Erinnerungen</h1> <!-- Updated header -->
+        <p>Gib das besondere Datum ein</p>
+        <input id="passwordInput" type="password" placeholder="Passwort eingeben">
+        <button id="submitButton" onclick="checkPassword()">Eingeben</button>
+        <button id="playMusicButton" onclick="playMusic()">Musik abspielen</button> <!-- Music button -->
+        <audio id="backgroundMusic" src="musik/titanic.mp3" preload="auto"></audio>
     </div>
-
-    <!-- Hintergrundmusik -->
-    <audio id="backgroundMusic" src="musik/titanic.mp3" preload="auto" loop></audio>
-
     <script>
         function checkPassword() {
-            // Passwort abgleichen und Eingabe trimmen
-            let password = document.getElementById("password").value.trim();
-            // Alle Nicht-Ziffern entfernen, um "642024" auch zu akzeptieren
-            const numericPassword = password.replace(/\D/g, "");
-            
-            // Mögliche gültige Passwortformate
-            const validPasswords = ["642024", "6424", "06042024", "6.4.2024", "06.04.2024", "0642024", "6042024"];
-
-            if (validPasswords.includes(numericPassword) || validPasswords.includes(password)) {
-                // Weiterleiten zur eigentlichen Website
+            const passwordInput = document.getElementById("passwordInput").value.trim();
+            const allowedPasswords = [
+                "6424", "6/4/24", "06/04/24", "6.4.24", "06.04.24",
+                "06-04-2024", "6-4-24", "06042024", "60424", "6.4.2024", "6.04.2024", "06.4.2024", "06.4.24"
+            ];
+            if (allowedPasswords.includes(passwordInput)) {
                 window.location.href = "hauptseite.html";
             } else {
-                // Fehlermeldung anzeigen
-                document.getElementById("message").innerText = "Falsches Passwort. Bitte versuche es erneut.";
+                alert("Falsches Passwort!");
             }
         }
 
-        function togglePassword() {
-            const passwordInput = document.getElementById("password");
-            const eyeIcon = document.getElementById("togglePassword");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text"; // Passwort anzeigen
-                eyeIcon.textContent = "👁️"; // Icon ändern
-            } else {
-                passwordInput.type = "password"; // Passwort verbergen
-                eyeIcon.textContent = "👁️"; // Icon zurücksetzen
-            }
-        }
 
         function playMusic() {
             const music = document.getElementById("backgroundMusic");
