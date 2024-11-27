@@ -34,7 +34,7 @@ const memories = [
     { text: "Spieleabend", image: "bilder/11.jpg" },
     { text: "Study session für Abi", image: "bilder/12.jpg" },
     { text: "Studying at HHU was it?", image: "bilder/13.jpg" },
-    { text: "Gyko Bank...", image: "bilder/14.jpg" },
+    { text: "Gyko Bank", image: "bilder/14.jpg" },
     { text: "Hilfe, was hast du mir angetan!", image: "bilder/15.jpg" },
     { text: "2 cutiepies", image: "bilder/16.jpg" },
     { text: "Nach Abiklausur...", image: "bilder/17.jpg" },
